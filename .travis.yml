@@ -9,7 +9,8 @@ before_script:
 - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
 script:
 - doxygen Doxyfile
-- git submodule ../../google/googletest.git extern/googletest
+- mkdir extern
+- git submodule https:/github.com/google/googletest.git extern/googletest
 - cmake .
 - cmake --build .
 - cmake --build . --target test
