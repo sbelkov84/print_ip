@@ -1,12 +1,22 @@
+dist: trusty
 language: cpp
 before_script:
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-7
+      - g++-7
 script:
 - doxygen Doxyfile
 - git submodule ../../google/googletest.git extern/googletest
+- export CC=gcc-7
+- export CXX=g++-7
 - cmake .
 - cmake --build .
 - cmake --build . --target test
