@@ -13,7 +13,6 @@ TEST(Print_IP, OnIntegralTypes)
   Print(CharIp);
   Printed = testing::internal::GetCapturedStdout();
   EXPECT_EQ(Printed, (std::string) "255");    
-
 }
 //------------------------------------------------------------------------
 
