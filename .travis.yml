@@ -4,8 +4,8 @@ before_script:
 - sudo apt-get update -qq
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
-- sudo git submodule ../../google/googletest.git extern/googletest
 script:
+- git submodule ../../google/googletest.git extern/googletest
 - doxygen Doxyfile
 - cmake .
 - cmake --build .
