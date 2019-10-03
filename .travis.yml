@@ -5,8 +5,8 @@ before_script:
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
 script:
-- git submodule ../../google/googletest.git extern/googletest
 - doxygen Doxyfile
+- git submodule ../../google/googletest.git extern/googletest
 - cmake .
 - cmake --build .
 - cmake --build . --target test

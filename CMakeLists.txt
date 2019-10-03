@@ -18,7 +18,7 @@ add_library(print_lib print.h)
 add_library(checkmethods_lib checkmethods.h)
 add_executable(test_print_ip test_print_ip.cpp)
 
-set_target_properties(print_ip print_lib checkmethods_lib #test_print_ip
+set_target_properties(print_ip print_lib checkmethods_lib test_print_ip
     PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
