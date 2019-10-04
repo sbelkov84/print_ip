@@ -10,7 +10,7 @@ before_script:
 script:
 - doxygen Doxyfile
 - sudo mkdir extern
-- git submodule add https://github.com/google/googletest.git extern/googletest
+- sudo git submodule add https://github.com/google/googletest.git extern/googletest
 - cmake .
 - cmake --build .
 - cmake --build . --target test
