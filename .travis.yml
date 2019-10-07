@@ -7,8 +7,6 @@ before_script:
 - sudo apt install graphviz -y
 - sudo apt-get install -qq g++-7
 - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
-- sudo mkdir extern
-- sudo git submodule add https://github.com/google/googletest.git extern/googletest
 script:
 - doxygen Doxyfile
 - cmake .
