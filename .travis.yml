@@ -7,21 +7,25 @@ before_script:
 - sudo apt install graphviz -y
 - sudo apt-get install -qq g++-7
 - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
-script:
-- doxygen Doxyfile
 - sudo mkdir extern
 - sudo git submodule add https://github.com/google/googletest.git extern/googletest
+script:
+- doxygen Doxyfile
 - cmake .
 - cmake --build .
 - cmake --build . --target test
 - cmake --build . --target package
 deploy:
-  provider: pages
+- provider: pages
   skip_cleanup: true
   local_dir: docs/html
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
+    branch: master
+- provider: script
+  skip_cleanup: true
+  on: 
     branch: master
   script:
   - curl -T print_ip-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -usbelkov84:$BINTRAY_API_KEY "https://api.bintray.com/content/sbelkov84/print_ip/print_ip/$TRAVIS_BUILD_NUMBER/print_ip-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
