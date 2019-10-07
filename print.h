@@ -45,7 +45,7 @@ Print(T Value)
   {
     for (auto It = Value.begin(); It != Value.end(); ++It)
       std::cout << *It;
-    std::cout << std::endl;
+    //std::cout << std::endl;
   }
   else if constexpr(HasIterators_v<T>)
   {
@@ -60,7 +60,6 @@ Print(T Value)
       //---
       ++Count;
     }
-    std::cout << std::endl;
   }
   else if constexpr(CanUsedByStdTupleSize_v<T>)
   {
@@ -79,7 +78,6 @@ Print(T Value)
       //---
       ++Count;
     }
-    std::cout << std::endl;
   };
 }
 //------------------------------------------------------------------------
@@ -117,6 +115,5 @@ Print(T Value)
     //---
     ++Count;
   }
-  //std::cout << std::endl; 
 }
 //------------------------------------------------------------------------
